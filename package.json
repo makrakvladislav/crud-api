@@ -5,9 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start:dev": "nodemon --config src/config/nodemon.json src/index.ts",
-    "start:prod": "tsc && node ./public/index.js",
-    "start:multi": "tsc && node ./public/index.js --cluster=enable",
-    "test": "jest --silent --verbose --config ./test/jest-e2e.json"
+    "start:prod": "tsc && node ./public/index.js"
   },
   "repository": {
     "type": "git",
