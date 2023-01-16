@@ -38,7 +38,7 @@ describe('Tests for API', () => {
     expect(getUserById.body[0]).toEqual(expect.objectContaining(userData));
   });
 
-  it('Update the created record : PUT api/users/{userId}', async () => {
+  it('Update the created record: PUT api/users/{userId}', async () => {
     const updateUserById = await request(server).put(`/api/users/${userData.id}`).send(mockDataUpdate).expect(200);
     expect(updateUserById.body).toEqual(
       expect.objectContaining({
