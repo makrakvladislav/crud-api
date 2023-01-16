@@ -71,12 +71,12 @@ const requestListener = async (req: IncomingMessage, res: ServerResponse) => {
       }
 
       try {
-        res.writeHead(201, { 'Content-Type': 'application/json' });
         const userDeleted = await controller.deleteUser(userId);
+        res.writeHead(204, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(userDeleted));
       } catch (err) {
         res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(err));
+        res.end(JSON.stringify({ message: err }));
       }
 
       // POST create user
@@ -96,7 +96,7 @@ const requestListener = async (req: IncomingMessage, res: ServerResponse) => {
         res.end(JSON.stringify(user));
       } catch (err) {
         res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(err));
+        res.end(JSON.stringify({ message: err }));
       }
     } else {
       res.writeHead(404, { 'Content-Type': 'application/json' });
@@ -111,9 +111,11 @@ const requestListener = async (req: IncomingMessage, res: ServerResponse) => {
 const server = createServer(requestListener);
 server.listen(port);
 
-export default interface IUser {
+export interface IUser {
   id: string;
   name: string;
   age: string;
   hobbies: Array<string>;
 }
+
+export default server;
