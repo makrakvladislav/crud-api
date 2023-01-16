@@ -1,4 +1,4 @@
-import IUser from 'src';
+import { IUser } from 'src';
 import { IncomingMessage } from 'http';
 
 export const getReqBody = (req: IncomingMessage) => {

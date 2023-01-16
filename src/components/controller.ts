@@ -1,4 +1,4 @@
-import IUser from 'src';
+import { IUser } from 'src';
 import { v4 as uuidv4 } from 'uuid';
 
 class Controller {
